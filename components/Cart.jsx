@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import toast from 'react-hot-toast';
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
@@ -10,7 +11,7 @@ import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, showCart, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -33,8 +34,10 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
+    <motion.div className="cart-wrapper" ref={cartRef} >
+      {showCart && <div className='overlay' onClick={() => setShowCart(false)}></div> }
+      <AnimatePresence exitBeforeEnter>
+        {showCart && <motion.div className="cart-container" initial={{x: 200, opacity: 0}} animate={{x: 0, opacity: 1, transition: {duration: 0.2}}} exit={{x: 600, transition: {duration: 0.2}}}>
         <button
         type="button"
         className="cart-heading"
@@ -104,8 +107,10 @@ const Cart = () => {
             </div>
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>}
+      
+      </AnimatePresence>
+    </motion.div>
   )
 }
 
