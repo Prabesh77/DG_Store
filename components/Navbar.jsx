@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
-import {motion, AnimatePresence} from 'framer-motion'
 
 import { Cart } from './';
 import { useStateContext} from '../context/StateContext';
