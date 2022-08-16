@@ -13,7 +13,9 @@ body, * {
 
 :root {
   /* --col-main: #f02d34; */
-  --col-main: #CF2D20;
+  /* --col-main: #CF2D20; */
+  --col-main: #F57224;
+  /* --col-main: #41003C; */
 }
 
 a {
@@ -38,11 +40,36 @@ width: 100%;
   position: relative;
   max-width: 1400px;
 }
+.search {
+  display: flex;
+}
+.search input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+}
+.search button {
+    /* width: 200px; */
+  
+    padding: 8px 16px;
+    background-color: var(--col-main);
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+     /* transform: scale(1, 1); */
+    transition: transform 0.5s ease;
+}
+@media(min-width: 768px) {
+  .search input {
+    width: 400px;
+  }
+}
 .marquee-text{
   font-size: 29px;
   font-weight: 600;
   margin: 60px 0px;
-  color: var(--col-main);;
+  color: var(--col-main);
 }
 .marquee {
   position: relative;
@@ -73,11 +100,19 @@ width: 100%;
 .logo{
   color: #fff;
   font-size: 22px;
-  /* font-weight: bold; */
-  background: #333;
+  font-weight: semibold;
+  /* background: #333; */
+  background: #41003C;
   padding: 5px 12px;
   cursor: pointer;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
 
+}
+@media(max-width: 600px) {
+  .logo {
+    font-size: 16px;
+  }
 }
 .cart-icon{
   font-size: 25px;
@@ -224,13 +259,16 @@ text-align: end;
   font-size: 40px;
   font-weight: 800;
 }
+.products-heading span{
+  color: var(--col-main);
+}
 .products-heading p{
   font-size: 16px;
   font-weight: 200;
 }
 .footer-banner-container{
   padding: 100px 40px;
-  background-color: var(--col-main);;
+  background-color: var(--col-main);
   border-radius: 15px;
   position: relative;
   height: 400px;

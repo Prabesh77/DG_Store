@@ -3,6 +3,8 @@ import { Toaster } from 'react-hot-toast';
 
 import { Layout } from '../components';
 import '../styles/globals.css';
+import '../styles/searchpage.css'
+
 import { StateContext } from '../context/StateContext';
 
 function MyApp({ Component, pageProps }) {
